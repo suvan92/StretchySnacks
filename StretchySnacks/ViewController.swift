@@ -30,11 +30,10 @@ class ViewController: UIViewController {
         }
     }
     
-    
     func expandNavBar() {
         UIView.animate(withDuration: 2.0, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0, options: .beginFromCurrentState, animations: {() -> Void in
             self.navBarHeight.constant = 200
-            self.plusButton.transform = CGAffineTransform(rotationAngle: 95)
+            self.plusButton.transform = CGAffineTransform(rotationAngle: CGFloat(M_PI_4))
             self.view.layoutIfNeeded()
         }, completion: { finished in
         })
@@ -43,7 +42,7 @@ class ViewController: UIViewController {
     func collapseNavBar() {
         UIView.animate(withDuration: 2.0, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: .beginFromCurrentState, animations: {() -> Void in
             self.navBarHeight.constant = 64
-            self.plusButton.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
+            self.plusButton.transform = CGAffineTransform(rotationAngle: CGFloat(-M_PI_2))
             self.view.layoutIfNeeded()
         }, completion: { finished in
         })
