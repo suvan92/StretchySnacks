@@ -54,14 +54,54 @@
 		14D515111DF9EB97002FBC7A /* StretchySnacks */ = {
 			isa = PBXGroup;
 			children = (
-				14D515121DF9EB97002FBC7A /* AppDelegate.swift */,
-				14D515141DF9EB97002FBC7A /* ViewController.swift */,
-				14D515161DF9EB97002FBC7A /* Main.storyboard */,
-				14D515191DF9EB97002FBC7A /* Assets.xcassets */,
-				14D5151B1DF9EB97002FBC7A /* LaunchScreen.storyboard */,
-				14D5151E1DF9EB97002FBC7A /* Info.plist */,
+				14D515271DF9EBB3002FBC7A /* Views */,
+				14D515261DF9EBB2002FBC7A /* Models */,
+				14D515251DF9EBB0002FBC7A /* Controllers */,
+				14D515241DF9EBAE002FBC7A /* UI */,
+				14D515281DF9EBD6002FBC7A /* SupportingFiles */,
 			);
 			path = StretchySnacks;
+			sourceTree = "<group>";
+		};
+		14D515241DF9EBAE002FBC7A /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				14D515161DF9EB97002FBC7A /* Main.storyboard */,
+				14D5151B1DF9EB97002FBC7A /* LaunchScreen.storyboard */,
+			);
+			name = UI;
+			sourceTree = "<group>";
+		};
+		14D515251DF9EBB0002FBC7A /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				14D515141DF9EB97002FBC7A /* ViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		14D515261DF9EBB2002FBC7A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				14D515121DF9EB97002FBC7A /* AppDelegate.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		14D515271DF9EBB3002FBC7A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		14D515281DF9EBD6002FBC7A /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				14D515191DF9EB97002FBC7A /* Assets.xcassets */,
+				14D5151E1DF9EB97002FBC7A /* Info.plist */,
+			);
+			name = SupportingFiles;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -96,6 +136,7 @@
 				TargetAttributes = {
 					14D5150E1DF9EB97002FBC7A = {
 						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = 2X396D2695;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -260,6 +301,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 2X396D2695;
 				INFOPLIST_FILE = StretchySnacks/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.suvanr.StretchySnacks;
@@ -272,6 +314,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 2X396D2695;
 				INFOPLIST_FILE = StretchySnacks/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.suvanr.StretchySnacks;

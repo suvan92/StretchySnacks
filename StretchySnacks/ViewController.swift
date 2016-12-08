@@ -9,17 +9,26 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    // MARK: Properties
 
+    @IBOutlet weak var navBarHeight: NSLayoutConstraint!
+    @IBOutlet weak var plusButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+    // MARK: Actions
 
+    @IBAction func plusButton(_ sender: UIButton) {
+        UIView.animate(withDuration: 2.0, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0, options: .beginFromCurrentState, animations: {() -> Void in
+                self.navBarHeight.constant = 200
+                self.view.layoutIfNeeded()
+        }, completion: { finished in
+        })
+    }
 
 }
 
