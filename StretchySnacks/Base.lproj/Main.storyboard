@@ -49,6 +49,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="customNavBar" destination="G6w-JO-kvD" id="hp7-dT-h11"/>
                         <outlet property="navBarHeight" destination="QX9-rS-Sjd" id="FFH-ok-0YW"/>
                         <outlet property="plusButton" destination="Q0k-w4-qtR" id="SMu-Nu-0vz"/>
                     </connections>
