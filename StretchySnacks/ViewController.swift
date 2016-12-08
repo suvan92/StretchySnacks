@@ -72,17 +72,28 @@ class ViewController: UIViewController {
         let popsicle = UIImage(named: "popsicle")
         let ramen = UIImage(named: "ramen")
         
-        let snackArray = [UIImageView(image: oreo!), UIImageView(image: pizzaPocket!), UIImageView(image: popTarts!), UIImageView(image: popsicle!), UIImageView(image: ramen!)]
+        let oreoButton = UIButton()
+        oreoButton.setImage(oreo!, for: .normal)
+        let pizzaPocketButton = UIButton()
+        pizzaPocketButton.setImage(pizzaPocket!, for: .normal)
+        let popTartsButton = UIButton()
+        popTartsButton.setImage(popTarts!, for: .normal)
+        let popsicleButton = UIButton()
+        popsicleButton.setImage(popsicle!, for: .normal)
+        let ramenButton = UIButton()
+        ramenButton.setImage(ramen!, for: .normal)
         
-        for imageView in snackArray {
-            imageView.contentMode = .scaleAspectFit
-            imageView.translatesAutoresizingMaskIntoConstraints = false
+        let snackArray = [oreoButton, pizzaPocketButton, popTartsButton, popsicleButton, ramenButton]
+        
+        for snackButton in snackArray {
+            snackButton.contentMode = .scaleAspectFit
+            snackButton.translatesAutoresizingMaskIntoConstraints = false
             
-            stackView.addArrangedSubview(imageView)
+            stackView.addArrangedSubview(snackButton)
             
-            self.customNavBar.addConstraint(NSLayoutConstraint(item: imageView, attribute: NSLayoutAttribute.width, relatedBy: NSLayoutRelation.equal, toItem: self.customNavBar, attribute: NSLayoutAttribute.width, multiplier: 0.19, constant: 0))
+            self.customNavBar.addConstraint(NSLayoutConstraint(item: snackButton, attribute: NSLayoutAttribute.width, relatedBy: NSLayoutRelation.equal, toItem: self.customNavBar, attribute: NSLayoutAttribute.width, multiplier: 0.19, constant: 0))
             
-            self.customNavBar.addConstraint(NSLayoutConstraint(item: imageView, attribute: .height, relatedBy: .equal, toItem: self.customNavBar, attribute: .height, multiplier: 0.8, constant: 0))
+            self.customNavBar.addConstraint(NSLayoutConstraint(item: snackButton, attribute: .height, relatedBy: .equal, toItem: self.customNavBar, attribute: .height, multiplier: 0.75, constant: 0))
         }
         
         stackView.isHidden = true
