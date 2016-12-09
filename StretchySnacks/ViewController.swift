@@ -8,14 +8,20 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     // MARK: Properties
     
     @IBOutlet weak var customNavBar: UIView!
     @IBOutlet weak var navBarHeight: NSLayoutConstraint!
     @IBOutlet weak var plusButton: UIButton!
+    @IBOutlet weak var tableView: UITableView!
+    
     var stackView = UIStackView()
+    
+    var dataSource = [String]()
+    
+  
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -74,14 +80,19 @@ class ViewController: UIViewController {
         
         let oreoButton = UIButton()
         oreoButton.setImage(oreo!, for: .normal)
+        oreoButton.addTarget(self, action: #selector (addOreoButton), for: .touchUpInside)
         let pizzaPocketButton = UIButton()
         pizzaPocketButton.setImage(pizzaPocket!, for: .normal)
+        pizzaPocketButton.addTarget(self, action: #selector (addPizzaButton), for: .touchUpInside)
         let popTartsButton = UIButton()
         popTartsButton.setImage(popTarts!, for: .normal)
+        popTartsButton.addTarget(self, action: #selector (addPoptartButton), for: .touchUpInside)
         let popsicleButton = UIButton()
         popsicleButton.setImage(popsicle!, for: .normal)
+        popsicleButton.addTarget(self, action: #selector (addPopsicleButton), for: .touchUpInside)
         let ramenButton = UIButton()
         ramenButton.setImage(ramen!, for: .normal)
+        ramenButton.addTarget(self, action: #selector (addRamenButton), for: .touchUpInside)
         
         let snackArray = [oreoButton, pizzaPocketButton, popTartsButton, popsicleButton, ramenButton]
         
@@ -93,7 +104,7 @@ class ViewController: UIViewController {
             
             self.customNavBar.addConstraint(NSLayoutConstraint(item: snackButton, attribute: NSLayoutAttribute.width, relatedBy: NSLayoutRelation.equal, toItem: self.customNavBar, attribute: NSLayoutAttribute.width, multiplier: 0.19, constant: 0))
             
-            self.customNavBar.addConstraint(NSLayoutConstraint(item: snackButton, attribute: .height, relatedBy: .equal, toItem: self.customNavBar, attribute: .height, multiplier: 0.75, constant: 0))
+            self.customNavBar.addConstraint(NSLayoutConstraint(item: snackButton, attribute: .height, relatedBy: .equal, toItem: self.customNavBar, attribute: .height, multiplier: 0.7, constant: 0))
         }
         
         stackView.isHidden = true
@@ -138,6 +149,49 @@ class ViewController: UIViewController {
         customNavBar.addConstraint(bottomConstraint)
         stackView.addConstraint(heightConstraint)
     }
+    
+    // MARK: Button Actions
+    
+    func addOreoButton() {
+        dataSource.insert("Oreo", at: 0)
+        tableView.insertRows(at: [IndexPath(row: 0, section: 0)], with: .automatic)
+    }
+    
+    func addPizzaButton() {
+        dataSource.insert("Pizza Pocket", at: 0)
+        tableView.insertRows(at: [IndexPath(row: 0, section: 0)], with: .automatic)
+    }
+    
+    func addPoptartButton() {
+        dataSource.insert("Poptart", at: 0)
+        tableView.insertRows(at: [IndexPath(row: 0, section: 0)], with: .automatic)
+    }
+    
+    func addPopsicleButton() {
+        dataSource.insert("Popsicle", at: 0)
+        tableView.insertRows(at: [IndexPath(row: 0, section: 0)], with: .automatic)
+    }
+    
+    func addRamenButton() {
+        dataSource.insert("Ramen", at: 0)
+        tableView.insertRows(at: [IndexPath(row: 0, section: 0)], with: .automatic)
+    }
+    
+    // MARK: Table View Methods
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return dataSource.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        
+        let cellTitle = dataSource[indexPath.row]
+        cell.textLabel?.text = cellTitle
+        
+        return cell
+    }
+    
 
 }
 
