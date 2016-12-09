@@ -18,9 +18,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var tableView: UITableView!
     
     var stackView = UIStackView()
-    
     var dataSource = [String]()
-    
+    var navBarTitle = UILabel()
   
     
     override func viewDidLoad() {
@@ -40,7 +39,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func expandNavBar() {
         self.stackView.isHidden = false
-        UIView.animate(withDuration: 2.0, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0, options: .beginFromCurrentState, animations: {() -> Void in
+        navBarTitle.text = "Add a SNACK"
+        UIView.animate(withDuration: 1.5, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0, options: .beginFromCurrentState, animations: {() -> Void in
             self.navBarHeight.constant = 200
             self.plusButton.transform = CGAffineTransform(rotationAngle: CGFloat(M_PI_4))
             self.view.layoutIfNeeded()
@@ -51,7 +51,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func collapseNavBar() {
         self.stackView.isHidden = true
-        UIView.animate(withDuration: 2.0, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: .beginFromCurrentState, animations: {() -> Void in
+        navBarTitle.text = "SNACK"
+        UIView.animate(withDuration: 1.5, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, options: .beginFromCurrentState, animations: {() -> Void in
             self.navBarHeight.constant = 64
             self.plusButton.transform = CGAffineTransform(rotationAngle: CGFloat(-M_PI_2))
             self.view.layoutIfNeeded()
@@ -62,6 +63,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     // MARK: General Methods
     
     func createStackView() {
+       
         customNavBar.addSubview(stackView)
         
         stackView.translatesAutoresizingMaskIntoConstraints = false
@@ -109,6 +111,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         stackView.isHidden = true
         
+         addNavBarTitle()
     }
     
     func constrainStackView() {
@@ -148,6 +151,15 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         customNavBar.addConstraint(rightConstraint)
         customNavBar.addConstraint(bottomConstraint)
         stackView.addConstraint(heightConstraint)
+    }
+    
+    func addNavBarTitle() {
+        navBarTitle.text = "SNACKS"
+        navBarTitle.translatesAutoresizingMaskIntoConstraints = false
+        
+        customNavBar.addSubview(navBarTitle)
+        customNavBar.addConstraint(NSLayoutConstraint(item: navBarTitle, attribute: .centerX, relatedBy: .equal, toItem: customNavBar, attribute: .centerX, multiplier: 1.0, constant: 0))
+        customNavBar.addConstraint(NSLayoutConstraint(item: navBarTitle, attribute: .topMargin, relatedBy: .equal, toItem: customNavBar, attribute: .topMargin, multiplier: 1.0, constant: 12))
     }
     
     // MARK: Button Actions
